@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célula Procarionte</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        #cell {
+            width: 50%;
+            height: 50%;
+            background-color: #f2f2f2;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            margin-left: 27%;
+            margin-top: 15%;
+            border-radius: 3%;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+        }
+
+        #cell:hover {
+            transform: scale(1.5);
+        }
+
+        #cell .title {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 30px;
+        }
+
+        .banner {
+            width: 50%;
+            height: 10%;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+            margin-top: 5%;
+            padding: 5%;
+        }
+
+        .banner.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+        }
+
+        .banner img {
+            display: block;
+            margin: 10px auto;
+            width: 120px;
+            height: 120px;
+        }
+
+        .banner .title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            margin: 5%;
+        }
+
+        .banner .description {
+            text-align: center;
+            color: #666;
+        }
+
+        #celula-inteira {
+            margin-bottom: 5%;
+            margin-top: 5%;
+            margin-left: 12%;
+            margin-right: auto;
+        }
+
+        .imag {
+            margin-left: 5%;
+            margin-top: 10%;
+            margin-bottom: 10%;
+        }
+      p{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        text-align: justify;
+      }
+
+        h2 {
+            margin-left: 10%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+    </style>
+
+    <script>
+        function toggleBanners() {
+            const cell = document.getElementById('cell');
+            const banners = document.querySelectorAll('.banner');
+
+            cell.addEventListener('click', function () {
+                cell.style.animation = 'fadeOut 0.5s ease';
+                setTimeout(function () {
+                    cell.style.display = 'none';
+                    banners.forEach(function (banner, index) {
+                        setTimeout(function () {
+                            banner.classList.add('show');
+                        }, index * 200);
+                    });
+                }, 500);
+            });
+        }
+    </script>
+
+</head>
+
+<body onload="toggleBanners()">
+    <div id="cell">
+        <div class="title">Célula Procarionte</div>
+        <h2>Clique para ver os componentes de sua estrtura.</h2>
+        <img src="procariótica.png" alt="desenho da célula procariótica inteira" id="celula-inteira">
+    </div>
+
+
+
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 21.31.46.png" alt="Parte 2" class="imag">
+        <div class="title" id="ml">Capsula:</div>
+        <div class="description"><p>A cápsula é uma camada gelatinosa que envolve a parede celular de algumas células
+            procariontes. Composta principalmente de polissacarídeos e/ou polipeptídeos, a cápsula confere uma textura
+            viscosa e aparência lisa à célula. A principal função da cápsula é a proteção contra a fagocitose pelo
+            sistema imunológico, dificultando a aderência e a captura pelas células do sistema imune. Além disso, a
+            cápsula pode ajudar a célula a aderir a superfícies, como tecidos ou outras células. Também desempenha um
+            papel na desidratação, evitando a perda excessiva de água.</p>
+
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 21.37.11.png" alt="Parte 1" class="imag">
+        <div class="title" id="ml">Parede Celular:</div>
+        <div class="description"><p>A parede celular é uma camada rígida que envolve a célula procarionte. Ela fornece
+            proteção e suporte estrutural, além de ajudar a manter a forma da célula. A composição da parede celular
+            pode variar dependendo do tipo de procarionte.</p></div>
+    </div>
+
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 21.39.45.png" alt="Parte 3" class="imag">
+        <div class="title">Ribossomo:</div>
+        <div class="description"><p>Os ribossomos são estruturas responsáveis pela síntese de proteínas. Eles são compostos
+            de RNA e proteínas e estão espalhados pelo citoplasma da célula procarionte. Os ribossomos ligam-se ao RNA
+            mensageiro e realizam a tradução das informações genéticas em cadeias de aminoácidos para a formação de
+            proteínas.</p>
+
+        </div>
+    </div>
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 21.47.33.png" alt="Parte 3" class="imag">
+        <div class="title">Nocleoide:</div>
+        <div class="description"><p>O material genético de uma célula procarionte está localizado em uma região chamada
+            nucleoide. Ele consiste em uma única molécula circular de DNA que contém as informações genéticas
+            necessárias para a sobrevivência e reprodução da célula. Ao contrário das células eucariontes, os
+            procariontes não possuem um núcleo verdadeiro.</p></div>
+    </div>
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 21.49.05.png" alt="Parte 3" class="imag">
+        <div class="title">Plasmideo:</div>
+        <div class="description"><p>Um plasmídeo é uma pequena molécula de DNA circular encontrada no citoplasma das
+            células procariontes. Diferente do cromossomo bacteriano principal, os plasmídeos são independentes e podem
+            existir em várias cópias dentro da célula. Eles contêm genes extras que não são essenciais para a
+            sobrevivência da célula, mas podem conferir vantagens adaptativas, como resistência a antibióticos, produção
+            de enzimas específicas ou capacidade de metabolizar certos compostos. Além disso, os plasmídeos podem ser
+            transferidos horizontalmente entre células bacterianas, permitindo a disseminação rápida de genes benéficos.
+        </p></div>
+    </div>
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 22.15.34.png" alt="Parte 3" class="imag">
+        <div class="title">Fímbrias:</div>
+        <div class="description"><p>Os flagelos são estruturas filamentosas longas e finas encontradas na superfície de
+            algumas células procariontes. Eles são responsáveis pelo movimento celular, permitindo que a célula se
+            desloque em resposta a estímulos ambientais, como luz ou substâncias químicas. Os flagelos bacterianos são
+            compostos principalmente de proteínas chamadas flagelinas. Dependendo da bactéria, eles podem ser
+            distribuídos de forma polar (localizados em uma extremidade) ou peritricos (espalhados pela superfície). Os
+            flagelos podem ser rotatórios, permitindo que a célula se mova com alta eficiência em diferentes direções.
+</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="Captura de Tela 2023-06-12 às 22.19.20.png" alt="Parte 3" class="imag">
+        <div class="title">Flagelo:</div>
+        <div class="description"><p>As fímbrias são estruturas curtas e finas semelhantes a pelos encontradas na superfície
+            de células procariontes. Elas desempenham um papel importante na aderência da célula a superfícies, como
+            outras células ou substratos. As fímbrias são compostas principalmente de proteínas chamadas pilinas. Elas
+            ajudam as células bacterianas a formar biofilmes, que são comunidades de células bacterianas aderidas a uma
+            superfície e envoltas por uma matriz de substâncias extracelulares. Os biofilmes permitem que as bactérias
+            se protejam do ambiente externo e tenham maior resistência a condições adversas, como antibióticos ou
+            estresses ambientais.</p></div>
+    </div>
+    <div class="banner">
+        <img src="membrana-plasmatica.jpg" alt="Parte 3" class="imag">
+        <div class="title">Membrana Plasmátca:</div>
+        <div class="description"><p>A membrana plasmática é uma fina camada lipídica que envolve a célula procarionte. Ela
+            controla a entrada e saída de substâncias, mantendo a integridade da célula. A membrana plasmática também
+            desempenha um papel importante na comunicação celular e no transporte de nutrientes.</p></div>
+    </div>
+
+
+
+    <!-- Adicione mais banners conforme necessário -->
+
+</body>
+
+</html>
