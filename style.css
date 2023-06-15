@@ -136,7 +136,9 @@ iframe {
 #footer{
     margin-top: 0%;
 }
-
+#tit{
+    font-family: 'Raleway', sans-serif;
+}
 @media (max-width: 700px) {
     #celula-inteira {
         width: 100%;
