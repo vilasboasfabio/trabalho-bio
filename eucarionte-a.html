@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célula Eucarionte Animal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        #cell {
+            width: 50%;
+            height: 30%;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            margin-left: 27%;
+            margin-top: 3%;
+            border-radius: 3%;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+            margin-bottom: -35%;
+        }
+
+        #cell:hover {
+            transform: scale(1.5);
+        }
+
+        #cell .title {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 30px;
+        }
+
+        .banner {
+            width: 50%;
+            height: 10%;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+            margin-top: 5%;
+            padding: 5%;
+            margin-top: -110%;
+        }
+
+
+        .banner.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+            margin-top: 8%;
+            margin-bottom: 5%;
+        }
+
+        .banner img {
+            display: block;
+            margin: 10px auto;
+
+        }
+
+        .banner .title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            margin: 5%;
+        }
+
+        .banner .description {
+            text-align: center;
+            color: #666;
+        }
+
+
+
+        p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: justify;
+        }
+
+        h2 {
+            margin-left: 10%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #celula-inteira {
+            margin-bottom: 10%;
+            margin-top: 5%;
+            margin-left: 18%;
+            margin-right: auto;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+
+        }
+
+        .imag {
+            width: 40%;
+            height: 40%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #erro1 {
+            width: 40%;
+            height: 40%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        #erro2 {
+            width: 40%;
+            height: 40%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        #footer{
+            margin-top: 0%;
+        }
+
+        @media (max-width: 700px) {
+            #celula-inteira {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 30%;
+                margin-top: -5%;
+            }
+
+            .banner {
+                width: 80%;
+                align-items: center;
+            }
+
+            .banner img {
+                width: 80%;
+
+            }
+
+            .banner .title {
+                font-size: 14px;
+            }
+
+            .banner .description {
+                font-size: 12px;
+            }
+
+            .imag {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #erro1 {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #erro2 {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #cell {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+                text-align: center;
+            }
+
+            h2 {
+                margin-left: -4%;
+            }
+       #footer{
+      margin-top: 6%;
+      margin-bottom: 0%;
+      height: 200px;
+      
+       }
+           
+        }
+    </style>
+
+    <script>
+        function toggleBanners() {
+            const cell = document.getElementById('cell');
+            const banners = document.querySelectorAll('.banner');
+
+            cell.addEventListener('click', function () {
+                cell.style.animation = 'fadeOut 0.5s ease';
+                setTimeout(function () {
+                    cell.style.display = 'none';
+                    banners.forEach(function (banner, index) {
+                        setTimeout(function () {
+                            banner.classList.add('show');
+                        }, index * 200);
+                    });
+                }, 500);
+            });
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="toggleBanners()">
+    <iframe src="header.html" frameborder="0"></iframe>
+    <div id="cell">
+        <div class="title" id="tit">Célula Eucarionte Animal.</div>
+        <h2>Clique para ver os componentes de sua estrtura.</h2>
+
+        <img src="A2D11477-911E-4DB3-B7DC-D2999BC3D4A4_1_201_a.jpeg" alt="desenho da célula eucariótica animal inteira"
+            id="celula-inteira" width="60%">
+</div>
+
+
+
+    <div class="banner">
+        <img src="6B853038-8320-46DB-B8AC-053A5D383B36_1_201_a.jpeg" alt="Parte 2" class="imag" id="erro1">
+        <div class="title" id="ml">Membrana Plásmatica</div>
+        <div class="description">
+            <p>É uma estrutura que delimita a célula eucariótica, separando o conteúdo intracelular do ambiente externo.
+                É composta por uma bicamada lipídica com proteínas inseridas, desempenhando funções como controle da
+                entrada e saída de substâncias e comunicação com outras células.</p>
+
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="IMG_3448.jpeg" alt="Parte 1" id="erro2">
+        <div class="title" id="ml">Reticulo Endoplasmático Liso:</div>
+        <div class="description">
+            <p>É uma rede de membranas tubulares e vesículas localizada no citoplasma. Desempenha diversas funções, como
+                síntese de lipídios, metabolismo de carboidratos, metabolismo de drogas e desintoxicação celular.</p>
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="0E83D086-24D2-40AA-95D4-33B04D3CA8BA_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Mitocondria:</div>
+        <div class="description">
+            <p>São organelas responsáveis pela produção de energia na forma de ATP (adenosina trifosfato) através da
+                respiração celular. Possuem uma membrana externa e uma membrana interna, contendo enzimas e sistemas de
+                transporte para a geração de energia.p>
+
+        </div>
+    </div>
+    <div class="banner">
+        <img src="3CD33F22-47A7-46C6-AA31-6798AB702A3D_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Citoplasma:</div>
+        <div class="description">
+            <p>Também conhecido como hieloplasma ou citosol, é a porção líquida do citoplasma onde estão suspensos
+                diversos organelos
+                celulares. Ele contém íons, proteínas, aminoácidos e outras moléculas necessárias para as atividades
+                metabólicas da célula.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="21272888-0D22-48E9-BE5D-051AD4C351F5_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Complexo Golgiensse:</div>
+        <div class="description">
+            <p>É uma estrutura formada por uma série de compartimentos membranosos achatados chamados de cisternas. O
+                complexo golgiense é responsável pelo processamento, modificação e embalagem de proteínas e lipídios,
+                além de secretar vesículas que transportam esses materiais para outras partes da célula ou para fora
+                dela.
+            </p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="F17CD2BD-EBC9-499D-BAF2-3825F2D31B9B_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Retículo Endoplasmático Rugso:</div>
+        <div class="description">
+            <p>É uma rede de membranas associada com ribossomos aderidos à sua superfície. Sua principal função é a
+                síntese e o processamento de proteínas destinadas à exportação ou à inserção na membrana plasmática ou
+                em organelas.
+            </p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG_3454.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Ribossomo:</div>
+        <div class="description">
+            <p>São pequenas estruturas presentes no citoplasma e no retículo endoplasmático rugoso. São responsáveis
+                pela síntese de proteínas, utilizando a informação genética contida no RNA mensageiro (mRNA).</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="1567A44F-CA5C-44DE-8C0F-7F50C927B413_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Núcleo:</div>
+        <div class="description">
+            <p>É uma organela que abriga o material genético das células eucarióticas, que consiste nos cromossomos. É
+                responsável pelo controle das atividades celulares, contendo o DNA que contém as informações necessárias
+                para a síntese de proteínas e a reprodução celular.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="43403601-1DD7-4A26-9F92-B22622901433_1_201_a.jpeg" alt="Parte 3" class="imag">
+        <div class="title">Núcleolo:</div>
+        <div class="description">
+            <p>É uma estrutura encontrada no núcleo celular, responsável pela produção e montagem dos componentes dos
+                ribossomos.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG_3451.jpeg" alt="Parte 3" class="imag" height="99%">
+        <div class="title">Membrana Nuclear:</div>
+        <div class="description">
+            <p>Também conhecida como cariotéca, é uma membrana dupla que delimita o núcleo. Ela separa o
+                material genético do núcleo do restante da célula, permitindo a regulação do tráfego de substâncias
+                entre o núcleo e o citoplasma.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="5C46EFF6-F555-493F-98F2-F814386AADCA_1_201_a.jpeg" alt="Parte 3" id="erro1">
+        <div class="title">Lisossomo:</div>
+        <div class="description">
+            <p>São organelas responsáveis pela digestão intracelular. Eles contêm enzimas hidrolíticas que quebram
+                moléculas complexas, como proteínas e lipídios, em componentes menores, que podem ser reciclados ou
+                eliminados pela célula.</p>
+        </div>
+    </div>
+
+
+    <!-- Adicione mais banners conforme necessário -->
+    <iframe src="footer.html" frameborder="0" id="footer" scrolling="no"></iframe>
+</body>
+
+</html>

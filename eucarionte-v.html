@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Célula Eucarionte Vegetal</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: black;
+        }
+
+        #cell {
+            width: 50%;
+            height: 30%;
+            background-color: white;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.5s ease;
+            margin-left: 27%;
+            margin-top: 3%;
+            border-radius: 3%;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+            margin-bottom: -100%;
+        }
+
+        #cell:hover {
+            transform: scale(1.5);
+        }
+
+        #cell .title {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: black;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            font-size: 30px;
+        }
+        .banner {
+            width: 50%;
+            height: 10%;
+            background-color: white;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.5s ease, visibility 0s linear 0.5s;
+            margin-left: auto;
+            margin-right: auto;
+            -webkit-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            -moz-box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            box-shadow: 10px 20px 14px 4px rgba(235, 235, 235, 0.8);
+            border: inset black;
+            margin-top: 5%;
+            padding: 5%;
+            margin-top: -110%;
+        }
+
+
+        .banner.show {
+            opacity: 1;
+            visibility: visible;
+            transition: opacity 0.5s ease;
+            margin-top: 8%;
+            margin-bottom: 5%;
+        }
+
+        .banner img {
+            display: block;
+            margin: 10px auto;
+
+        }
+
+        .banner .title {
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            margin-bottom: 10px;
+            margin: 5%;
+        }
+
+        .banner .description {
+            text-align: center;
+            color: #666;
+        }
+
+
+
+        p {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            text-align: justify;
+        }
+
+        h2 {
+            margin-left: 10%;
+            margin-top: 5%;
+            margin-bottom: 5%;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+
+        #celula-inteira {
+            margin-bottom: 10%;
+            margin-top: 5%;
+            margin-left: 18%;
+            margin-right: auto;
+        }
+
+        iframe {
+            width: 100%;
+            border: none;
+
+        }
+
+        .imag {
+            width: 40%;
+                height: 40%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+        #erro1 {
+            width: 40%;
+                height: 40%;
+                margin-right: auto;
+                margin-left: auto;
+        }
+
+        #erro2 {
+            width: 40%;
+                height: 40%;
+                margin-right: auto;
+                margin-left: auto;
+        }
+        #footer{
+            margin-top: 0%;
+        }
+        @media (max-width: 700px) {
+            #celula-inteira {
+                width: 100%;
+                margin-left: 0;
+                margin-bottom: 30%;
+                margin-top: -5%;
+            }
+
+            .banner {
+                width: 80%;
+                align-items: center;
+            }
+
+            .banner img {
+                width: 80%;
+
+            }
+
+            .banner .title {
+                font-size: 14px;
+            }
+
+            .banner .description {
+                font-size: 12px;
+            }
+
+            .imag {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #erro1 {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #erro2 {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            #cell {
+                width: 80%;
+                height: 80%;
+                margin-right: auto;
+                margin-left: auto;
+                text-align: center;
+                margin-bottom: 70%;
+            }
+
+            h2 {
+                margin-left: -4%;
+            }
+            #footer{
+      margin-top: 16%;
+      margin-bottom: -12%;
+      height: 200px;
+      
+       }
+        }
+    </style>
+
+    <script>
+        function toggleBanners() {
+            const cell = document.getElementById('cell');
+            const banners = document.querySelectorAll('.banner');
+
+            cell.addEventListener('click', function () {
+                cell.style.animation = 'fadeOut 0.5s ease';
+                setTimeout(function () {
+                    cell.style.display = 'none';
+                    banners.forEach(function (banner, index) {
+                        setTimeout(function () {
+                            banner.classList.add('show');
+                        }, index * 200);
+                    });
+                }, 500);
+            });
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body onload="toggleBanners()">
+    <iframe src="header.html" frameborder="0"></iframe>
+    <div id="cell">
+        <div class="title" id="tit">Célula Eucarionte Animal.</div>
+        <h2>Clique para ver os componentes de sua estrtura.</h2>
+        <img src="IMG-3470.jpg" alt="desenho da eucariótica vegetal inteira"
+            id="celula-inteira" width="60%">
+    </div>
+
+
+    <div class="banner">
+        <img src="IMG-3458.jpg" alt="Parte 2" class="imag" id="erro1">
+        <div class="title" id="ml">Parede Celular:</div>
+        <div class="description">
+            <p>É uma estrutura rígida e resistente que envolve a membrana plasmática nas células vegetais. Sua principal
+                função é fornecer suporte e proteção à célula, além de conferir rigidez à planta.</p>
+
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="IMG-3459.jpg" alt="Parte 2" class="imag" id="erro1">
+        <div class="title" id="ml">Membrana Celular:</div>
+        <div class="description">
+            <p>Também conhecida como membrana plasmática, é uma estrutura que envolve a célula vegetal, delimitando seu
+                conteúdo interno. Ela controla a entrada e saída de substâncias, além de participar da comunicação
+                celular.</p>
+
+        </div>
+    </div>
+
+    <div class="banner">
+        <img src="IMG-3460.jpg" alt="Parte 1" id="erro2">
+        <div class="title" id="ml">Mitocôndria:</div>
+        <div class="description">
+            <p>Assim como nas células animais, as mitocôndrias nas células vegetais são responsáveis pela produção de
+                energia na forma de ATP por meio da respiração celular. Elas possuem membranas interna e externa e
+                desempenham um papel fundamental no metabolismo energético da célula.
+            </p>
+        </div>
+    </div>
+
+    </div>
+    <div class="banner">
+        <img src="IMG-3463.jpg" alt="Parte 3" class="imag">
+        <div class="title">Citoplasma:</div>
+        <div class="description">
+            <p>Também conhecido como hialoplasma, é a região líquida e gelatinosa que preenche o interior da célula
+                vegetal. Ele contém várias organelas, como os cloroplastos, mitocôndrias e o complexo de Golgi, além de
+                nutrientes e outras substâncias necessárias para o funcionamento celular.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3462.jpg" alt="Parte 3" class="imag">
+        <div class="title">Cloroplasto:</div>
+        <div class="description">
+            <p>É uma organela exclusiva das células vegetais, responsável pela fotossíntese. Os cloroplastos contêm
+                clorofila, um pigmento que absorve a energia da luz solar para produzir moléculas de açúcar, convertendo
+                dióxido de carbono e água em oxigênio e glicose.
+            </p>
+        </div>
+    </div>
+    <div class="banner">
+    <img src="IMG-3461.jpg" alt="Parte 3" class="imag">
+    <div class="title">Complexo de Golgi:</div>
+    <div class="description">
+        <p>Também presente nas células vegetais, o complexo de Golgi é responsável pelo processamento, modificação e
+            empacotamento de proteínas e lipídios sintetizados pela célula. Ele atua na secreção de substâncias, na
+            formação de lisossomos e na renovação da membrana plasmática.
+        </p>
+    </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3464.jpg" alt="Parte 3" class="imag">
+        <div class="title">Retículo Endoplasmático:</div>
+        <div class="description">
+            <p>O retículo endoplasmático (RE) nas células vegetais é uma rede de membranas que se estende pelo
+                citoplasma. Ele pode ser dividido em retículo endoplasmático liso (REL) e retículo endoplasmático rugoso
+                (RER). O REL está envolvido na síntese de lipídios, enquanto o RER possui ribossomos aderidos à sua
+                superfície e desempenha um papel na síntese e no processamento de proteínas.
+            </p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3465.jpg" alt="Parte 3" class="imag">
+        <div class="title">Núcleo:</div>
+        <div class="description">
+            <p>É uma organela presente em todas as células eucarióticas, incluindo as vegetais. O núcleo abriga o
+                material genético, como o DNA, que contém as instruções para a síntese de proteínas e a reprodução
+                celular. Ele controla as atividades celulares e é responsável pela transmissão das características
+                hereditárias.p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3466.jpg" alt="Parte 3" class="imag">
+        <div class="title">Núcleolo:</div>
+        <div class="description">
+            <p>É uma estrutura encontrada no interior do núcleo, responsável pela produção e montagem dos componentes
+                dos ribossomos.
+
+
+            </p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3467.jpg" alt="Parte 3" class="imag" height="99%">
+        <div class="title">Membrana Nuclear:</div>
+        <div class="description">
+            <p>Também conhecida como carioteca, é uma membrana dupla que envolve o núcleo da célula vegetal. Ela separa
+                o material genético do núcleo do restante da célula, permitindo a regulação do tráfego de substâncias
+                entre o núcleo e o citoplasma.</p>
+        </div>
+    </div>
+    <div class="banner">
+        <img src="IMG-3467.jpg" alt="Parte 3" class="imag" height="99%">
+        <div class="title">Váculo:</div>
+        <div class="description">
+            <p>É uma estrutura grande e vesicular encontrada no citoplasma das células vegetais. O vacúolo desempenha
+                várias funções, como o armazenamento de água, nutrientes, pigmentos e toxinas, além de contribuir para a
+                rigidez celular e o crescimento da planta.</p>
+        </div>
+    </div>
+
+
+    <!-- Adicione mais banners conforme necessário -->
+    <iframe src="footer.html" frameborder="0" id="footer" scrolling="no"></iframe>
+</body>
+
+</html>
